@@ -5,7 +5,7 @@ Você deve desenvolver um pipeline de dados que seja capaz de realizar o process
 
 Etapa 1 - Configuração de um ambiente para realizar o ETL. O ambiente pode contar com ferramentas de suporte ao processo como Python, Virtualenv, Docker, Apache Airflow, MySQL, Postgres, entre outros.
 
-Etapa 2 - Aquisição de dados:
+Etapa 2 - Coleta de dados:
 
 Fonte Solplace: Realize o Web Scraping que faça a coleta informações dos produtos disponíveis (Porte, preço e estrutura) no site https://www.solplace.com.br/shop. Utilizando para isso ferramentas como: Selenium, Scrapy, Beautiful Soup, entre outros.
 
