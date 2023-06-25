@@ -1,0 +1,30 @@
+Para a solução deste desafio, considerei utilizar os seguintes recursos: Python(bibliotecas pandas, re, json), Virtualenv, Docker, Apache Airflow, MySQL e Scrapy.
+O projeto foi realizado em sistema operacioanl Ubunto.
+
+Segue passo a passo para instalação dos recursos mencionados acima, via terminal linux.
+
+
+Python (com as bibliotecas pandas, re e json):
+Verifique se o Python está instalado executando o seguinte comando no terminal: python3 --version. Se não estiver instalado, instale-o usando o gerenciador de pacotes da sua distribuição Linux.
+Instale o pip, o gerenciador de pacotes do Python, usando o seguinte comando: sudo apt install python3-pip.
+Instale as bibliotecas pandas, re e json usando o pip: pip3 install pandas re json.
+
+Virtualenv:
+Instale o Virtualenv usando o pip: pip3 install virtualenv.
+
+Docker:
+Siga as instruções específicas para a sua distribuição Linux na documentação oficial do Docker: https://docs.docker.com/engine/install/.
+
+Apache Airflow:
+Instale o Apache Airflow usando o pip: pip3 install apache-airflow.
+Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
+Inicie o servidor do Airflow: airflow webserver.
+Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
+
+MySQL:
+Instale o servidor MySQL usando o gerenciador de pacotes da sua distribuição Linux. Por exemplo, no Ubuntu: sudo apt install mysql-server.
+Execute o script de segurança do MySQL para configurar as opções de segurança: sudo mysql_secure_installation.
+Siga as instruções para configurar a senha do usuário root e definir as políticas de segurança adequadas.
+Scrapy:
+
+Instale o Scrapy usando o pip: pip3 install scrapy.
