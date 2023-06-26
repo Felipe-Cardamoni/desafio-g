@@ -3,7 +3,6 @@ O projeto foi realizado em sistema operacioanl Ubunto.
 
 Segue passo a passo para instalação dos recursos mencionados acima, via terminal linux.
 
-
 Python (com as bibliotecas pandas, re e json):
 Verifique se o Python está instalado executando o seguinte comando no terminal: python3 --version. Se não estiver instalado, instale-o usando o gerenciador de pacotes da sua distribuição Linux.
 Instale o pip, o gerenciador de pacotes do Python, usando o seguinte comando: sudo apt install python3-pip.
@@ -15,8 +14,15 @@ Instale o Virtualenv usando o pip: pip3 install virtualenv.
 Docker:
 
 
+Docker-compose:
+
+
 Apache Airflow:
-Instale o Apache Airflow usando o pip: pip3 install apache-airflow.
+Crie um ambiente virtual para o airflow:
+virtualenv airflow_env
+Em seguida ative o ambiente virtual:
+source airflow_env/bin/activate
+Instale o Apache Airflow usando o pip: pip install apache-airflow.
 Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
 Inicie o servidor do Airflow: airflow webserver.
 Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
@@ -30,8 +36,24 @@ CREATE USER 'airflow_user'@'localhost' IDENTIFIED BY 'airflowteste;
 Em seguida, fiz alguns ajustes nas permissões deste usuário:
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON airflow_db.* TO 'airflow_user'@'localhost';
 FLUSH PRIVILEGES;
+Criar um database para o projeto:
+CREATE DATABASE projeto_greener;
+Em seguida, vou criar uma tabela chamada tb_produtos e definir suas caracteristicas: 
+CREATE TABLE tb_produtos (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     descricao TEXT,
+    ->     porte TEXT,
+    ->     preco DECIMAL(10, 2)
+    -> );
+Após criar o projeto, adicione a permissão do usuário airflow no database projeto_greener:
+GRANT ALL PRIVILEGES ON projeto_greener.* TO 'airflow_user'@'localhost';
+FLUSH PRIVILEGES;
 
 
 Scrapy:
+Instale o Scrapy usando o pip: 
+pip3 install scrapy.
+Utilizei o comando abaixo para criar o meu projeto scrapy chamado solplace:
+scrapy startproject solplace
+Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criaremos arquivos python que realizarão a coleta dos dados.
 
-Instale o Scrapy usando o pip: pip3 install scrapy.
