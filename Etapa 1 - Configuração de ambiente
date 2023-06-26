@@ -1,5 +1,5 @@
 Para a solução deste desafio, considerei utilizar os seguintes recursos: Python(bibliotecas pandas, re, json), Virtualenv, Docker, Apache Airflow, MySQL e Scrapy.
-O projeto foi realizado em sistema operacioanl Ubunto.
+O projeto foi realizado em sistema operacional Ubunto.
 
 Segue passo a passo para instalação dos recursos mencionados acima, via terminal linux.
 
@@ -12,9 +12,15 @@ Virtualenv:
 Instale o Virtualenv usando o pip: pip3 install virtualenv.
 
 Docker:
-
+Utilizando permissões de usuário root, execute os comandos:
+sudo apt update
+sudo apt install docker.io
 
 Docker-compose:
+Utilizando permissões de usuário root, execute os comandos:
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+O comando a seguir, atribui permissões de execução ao arquivo docker-compose localizado em /usr/local/bin/
+sudo chmod +x /usr/local/bin/docker-compose
 
 
 Apache Airflow:
