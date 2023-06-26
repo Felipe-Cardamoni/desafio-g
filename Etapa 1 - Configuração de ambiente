@@ -13,7 +13,7 @@ Virtualenv:
 Instale o Virtualenv usando o pip: pip3 install virtualenv.
 
 Docker:
-Siga as instruções específicas para a sua distribuição Linux na documentação oficial do Docker: https://docs.docker.com/engine/install/.
+
 
 Apache Airflow:
 Instale o Apache Airflow usando o pip: pip3 install apache-airflow.
@@ -23,8 +23,15 @@ Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
 
 MySQL:
 Instale o servidor MySQL usando o gerenciador de pacotes da sua distribuição Linux. Por exemplo, no Ubuntu: sudo apt install mysql-server.
-Execute o script de segurança do MySQL para configurar as opções de segurança: sudo mysql_secure_installation.
+Execute o script de segurança do MySQL para configurar as opções de segurança: sudo mysql_secure_installation. Este comando é necessário para definir a senha do usuário root.
 Siga as instruções para configurar a senha do usuário root e definir as políticas de segurança adequadas.
+Dentro do MySQL cirei um usuário que será utilizado pelo airflow, segue exemplo:
+CREATE USER 'airflow_user'@'localhost' IDENTIFIED BY 'airflowteste;
+Em seguida, fiz alguns ajustes nas permissões deste usuário:
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON airflow_db.* TO 'airflow_user'@'localhost';
+FLUSH PRIVILEGES;
+
+
 Scrapy:
 
 Instale o Scrapy usando o pip: pip3 install scrapy.
