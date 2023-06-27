@@ -1,9 +1,11 @@
 Para a solução deste desafio, considerei utilizar os seguintes recursos: Python(bibliotecas pandas, re, json), Virtualenv, Docker, Apache Airflow, MySQL e Scrapy.
+Vou criar um ambiente virtual para o airflow, instalar o scrapy e demais dependencias dentro deste ambiente.
+Vou instalar o docker para criar um conteiner responsável por executar o mysql.
 O projeto foi realizado em sistema operacional Ubunto.
 
 Segue passo a passo para instalação dos recursos mencionados acima, via terminal linux.
 
-Python (com as bibliotecas pandas, re e json):
+Python:
 Verifique se o Python está instalado executando o seguinte comando no terminal: python3 --version. Se não estiver instalado, instale-o usando o gerenciador de pacotes da sua distribuição Linux.
 Instale o pip, o gerenciador de pacotes do Python, usando o seguinte comando: sudo apt install python3-pip.
 
@@ -40,7 +42,6 @@ GRANT INSERT, SELECT ON projeto_greener.tb_produtos TO 'airflow_user'@'localhost
 FLUSH PRIVILEGES;
 
 
-
 Apache Airflow:
 Crie um ambiente virtual para o airflow:
 virtualenv airflow_env
@@ -50,7 +51,6 @@ Instale o Apache Airflow usando o pip: pip install apache-airflow.
 Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
 Inicie o servidor do Airflow: airflow webserver.
 Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
-
 
 
 Scrapy:
