@@ -39,20 +39,22 @@ Execute o script de segurança do MySQL para configurar as opções de seguranç
 Siga as instruções para configurar a senha do usuário root e definir as políticas de segurança adequadas.
 Dentro do MySQL cirei um usuário que será utilizado pelo airflow, segue exemplo:
 CREATE USER 'airflow_user'@'localhost' IDENTIFIED BY 'airflowteste;
-Em seguida, fiz alguns ajustes nas permissões deste usuário:
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX, LOCK TABLES ON airflow_db.* TO 'airflow_user'@'localhost';
+
 FLUSH PRIVILEGES;
 Criar um database para o projeto:
 CREATE DATABASE projeto_greener;
-Em seguida, vou criar uma tabela chamada tb_produtos e definir suas caracteristicas: 
+
+Em seguida, vou criar uma tabela chamada tb_produtos e definir suas caracteristicas:
+Use projeto_greener;
 CREATE TABLE tb_produtos (
-    ->     id INT AUTO_INCREMENT PRIMARY KEY,
-    ->     descricao TEXT,
-    ->     porte TEXT,
-    ->     preco DECIMAL(10, 2)
-    -> );
-Após criar o projeto, adicione a permissão do usuário airflow no database projeto_greener:
-GRANT ALL PRIVILEGES ON projeto_greener.* TO 'airflow_user'@'localhost';
+    _id INT AUTO_INCREMENT PRIMARY KEY,
+    porte_produto TEXT,
+    estrutura TEXT NULL,
+    preco DECIMAL(10, 2)
+);
+
+Em seguida, fiz alguns ajustes nas permissões deste usuário:
+GRANT INSERT, SELECT ON projeto_greener.tb_produtos TO 'airflow_user'@'localhost';
 FLUSH PRIVILEGES;
 
 
