@@ -6,7 +6,6 @@ Segue passo a passo para instalação dos recursos mencionados acima, via termin
 Python (com as bibliotecas pandas, re e json):
 Verifique se o Python está instalado executando o seguinte comando no terminal: python3 --version. Se não estiver instalado, instale-o usando o gerenciador de pacotes da sua distribuição Linux.
 Instale o pip, o gerenciador de pacotes do Python, usando o seguinte comando: sudo apt install python3-pip.
-Instale as bibliotecas pandas, re e json usando o pip: pip3 install pandas re json.
 
 Virtualenv:
 Instale o Virtualenv usando o pip: pip3 install virtualenv.
@@ -15,23 +14,6 @@ Docker:
 Utilizando permissões de usuário root, execute os comandos:
 sudo apt update
 sudo apt install docker.io
-
-Docker-compose:
-Utilizando permissões de usuário root, execute os comandos:
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-O comando a seguir, atribui permissões de execução ao arquivo docker-compose localizado em /usr/local/bin/
-sudo chmod +x /usr/local/bin/docker-compose
-
-
-Apache Airflow:
-Crie um ambiente virtual para o airflow:
-virtualenv airflow_env
-Em seguida ative o ambiente virtual:
-source airflow_env/bin/activate
-Instale o Apache Airflow usando o pip: pip install apache-airflow.
-Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
-Inicie o servidor do Airflow: airflow webserver.
-Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
 
 MySQL:
 Instale o servidor MySQL usando o gerenciador de pacotes da sua distribuição Linux. Por exemplo, no Ubuntu: sudo apt install mysql-server.
@@ -58,10 +40,23 @@ GRANT INSERT, SELECT ON projeto_greener.tb_produtos TO 'airflow_user'@'localhost
 FLUSH PRIVILEGES;
 
 
+
+Apache Airflow:
+Crie um ambiente virtual para o airflow:
+virtualenv airflow_env
+Em seguida ative o ambiente virtual:
+source airflow_env/bin/activate
+Instale o Apache Airflow usando o pip: pip install apache-airflow.
+Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
+Inicie o servidor do Airflow: airflow webserver.
+Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
+
+
+
 Scrapy:
 Instale o Scrapy usando o pip: 
 pip3 install scrapy.
-Utilizei o comando abaixo para criar o meu projeto scrapy chamado solplace:
-scrapy startproject solplace
+Utilizei o comando abaixo para criar o meu projeto scrapy chamado greener:
+scrapy startproject greener
 Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criaremos arquivos python que realizarão a coleta dos dados.
 
