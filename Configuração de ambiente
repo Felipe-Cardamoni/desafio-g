@@ -50,7 +50,7 @@ CREATE TABLE tb_produtos (
     _id INT AUTO_INCREMENT PRIMARY KEY,
     porte_produto TEXT,
     estrutura TEXT NULL,
-    preco DECIMAL(10, 2)
+    preco FLOAT
 );
 
 Em seguida, fiz alguns ajustes nas permissões deste usuário:
