@@ -19,15 +19,18 @@ Em seguida ative o ambiente virtual:
 source airflow_env/bin/activate
 Instale o Apache Airflow usando o pip: pip install apache-airflow.
 Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
+O comando abaixo é para instalar do conector do airflow com o mysql
+sudo pip3 install mysql-connector-python
 Inicie o servidor do Airflow: airflow webserver.
 Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
+Dentro do diretório, criei minhas dags dag_aldo.py e dag_solplace.py.
 
 Scrapy:
 Instale o Scrapy usando o pip: 
 pip3 install scrapy.
 Utilizei o comando abaixo para criar o meu projeto scrapy chamado greener:
 scrapy startproject greener
-Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criaremos arquivos python que realizarão a coleta dos dados.
+Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criei o documento solplace_spider.py.
 
 MySQL:
 Instale o servidor MySQL usando o gerenciador de pacotes da sua distribuição Linux. Por exemplo, no Ubuntu: sudo apt install mysql-server.
