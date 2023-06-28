@@ -1,4 +1,4 @@
-Para a solução deste desafio, considerei utilizar os seguintes recursos: Python(bibliotecas pandas, re, json), Virtualenv, Docker, Apache Airflow, MySQL e Scrapy.
+Para a solução deste desafio, considerei utilizar os seguintes recursos: Python, Virtualenv, Apache Airflow, MySQL e Scrapy.
 Vou criar um ambiente virtual para o airflow, instalar o scrapy e demais dependencias dentro deste ambiente.
 Vou instalar o docker para criar um conteiner responsável por executar o mysql.
 O projeto foi realizado em sistema operacional Ubunto.
@@ -12,14 +12,27 @@ Instale o pip, o gerenciador de pacotes do Python, usando o seguinte comando: su
 Virtualenv:
 Instale o Virtualenv usando o pip: pip3 install virtualenv.
 
-Docker:
-Utilizando permissões de usuário root, execute os comandos:
-sudo apt update
-sudo apt install docker.io
+Apache Airflow:
+Crie um ambiente virtual para o airflow:
+virtualenv airflow_env
+Em seguida ative o ambiente virtual:
+source airflow_env/bin/activate
+Instale o Apache Airflow usando o pip: pip install apache-airflow.
+Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
+Inicie o servidor do Airflow: airflow webserver.
+Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
+
+Scrapy:
+Instale o Scrapy usando o pip: 
+pip3 install scrapy.
+Utilizei o comando abaixo para criar o meu projeto scrapy chamado greener:
+scrapy startproject greener
+Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criaremos arquivos python que realizarão a coleta dos dados.
 
 MySQL:
 Instale o servidor MySQL usando o gerenciador de pacotes da sua distribuição Linux. Por exemplo, no Ubuntu: sudo apt install mysql-server.
-Execute o script de segurança do MySQL para configurar as opções de segurança: sudo mysql_secure_installation. Este comando é necessário para definir a senha do usuário root.
+Execute o script de segurança do MySQL para configurar as opções de segurança, este comando é necessário para definir a senha do usuário root:
+sudo mysql_secure_installation.
 Siga as instruções para configurar a senha do usuário root e definir as políticas de segurança adequadas.
 Dentro do MySQL cirei um usuário que será utilizado pelo airflow, segue exemplo:
 CREATE USER 'airflow_user'@'localhost' IDENTIFIED BY 'airflowteste;
@@ -42,21 +55,5 @@ GRANT INSERT, SELECT ON projeto_greener.tb_produtos TO 'airflow_user'@'localhost
 FLUSH PRIVILEGES;
 
 
-Apache Airflow:
-Crie um ambiente virtual para o airflow:
-virtualenv airflow_env
-Em seguida ative o ambiente virtual:
-source airflow_env/bin/activate
-Instale o Apache Airflow usando o pip: pip install apache-airflow.
-Inicialize o banco de dados do Airflow executando o seguinte comando: airflow db init.
-Inicie o servidor do Airflow: airflow webserver.
-Em outro terminal, inicie o scheduler do Airflow: airflow scheduler.
 
-
-Scrapy:
-Instale o Scrapy usando o pip: 
-pip3 install scrapy.
-Utilizei o comando abaixo para criar o meu projeto scrapy chamado greener:
-scrapy startproject greener
-Dentra da estrutura de pastas do projeto, localize a pasta spider, dentro deste diretório criaremos arquivos python que realizarão a coleta dos dados.
 
